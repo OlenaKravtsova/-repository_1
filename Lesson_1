@@ -134,6 +134,6 @@
 # # приклад для перевірки програми 2
 # # користувач ввів:1441
 # # користувач отримує: 0, 1
-clock = int(input("Enter a number: "))
-hours = clock % (60 * 24) // 60
-minutes = clock % 60
+# clock = int(input("Enter a number: "))
+# hours = clock % (60 * 24) // 60
+# minutes = clock % 60
