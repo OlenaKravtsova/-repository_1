@@ -135,8 +135,10 @@
 # # користувач ввів:1441
 # # користувач отримує: 0, 1
 # clock = int(input("Enter a number: "))
-# hours = clock % (60 * 24) // 60
+# hours_day = 24 * 60
+# hours = (clock % hours_day) // 60
 # minutes = clock % 60
+# print(hours, ":", minutes)
 #
 #
 # # 13 Журавлики
