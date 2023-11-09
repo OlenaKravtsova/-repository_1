@@ -1,160 +1,64 @@
-# # 1.Арифметичні операції: Написати програму, яка зчитує два числа та виводить їхню суму, різницю, добуток та частку.
-#
-# # два числа та виводить їхню суму:
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = (numeric_1 + numeric_2)
-# print(result)
-# print(type(result))
-#
-# # два числа та виводить їхню різницю:
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = numeric_1 - numeric_2
-# print(result)
-# print(type(result))
-#
-# # два числа та виводить їхню добуток:
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = numeric_1 * numeric_2
-# print(result)
-# print(type(result))
-#
-# # два числа та виводить частку:
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = numeric_1 / numeric_2
-# print(result)
-# print(type(result))
+# Урок 1
+# приклад псевдокоду: якщо буде зміна var_а більше ніж 10 зроби цей код.
 
-# # Або так, коли маємо фіксовані значення змінних:
-# numeric_4 = 20
-# numeric_5 = 6
-# result_sum = numeric_4 + numeric_5
-# result_minus = numeric_4 - numeric_5
-# result_product = numeric_4 * numeric_5
-# result_separation = numeric_4 / numeric_5
-# print(result_sum, result_minus, result_product, result_separation)
+# для того що б поставити курсор в декількох місцях(в групі) затискаємо option або alt
+# для коментування декількох стрічок або розкоментувати виділяємо command+? або cntr+?
 
-# # 2.Залишок від ділення: Користувач вводить два числа. Вивести залишок від ділення першого числа на друге.
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = numeric_1 % numeric_2
-# print("Залишок: ", result)
-# print(type(result))
+# # НЕ ПИШІТЬ ЗМІНІ УКРАЇНСЬКОЮ МОВОЮ. !!!НЕ ВІРНИЙ СИНТАКСИС
+# зміна_1 = 20
+# print(зміна_1)
 #
-# # 3.Цілочисельне ділення: Користувач вводить два числа. Вивести, скільки разів перше число ділиться на друге без залишку.
-# numeric_1 = int(input("Введіть перше число: "))
-# numeric_2 = int(input("Введіть друге число: "))
-# result = numeric_1 // numeric_2
+# # НЕ ПИШІТЬ УКРАЇНСЬКІ ЗМІНІ АНГЛІЙСЬКИМИ ЛІТЕРАМИ !!!НЕ ВІРНИЙ СИНТАКСИС
+# zmina_1 = 20
+# print(zmina_1)
+
+# ПРАВИЛЬНИЙ ВАРІАНТ
+variable_1 = 20
+variable_2 = 5
+variable_3 = 3
+
+# hotkey дублювання command+d або cntrl+d
+#
+# print(variable_1 * variable_2) # без збереження в змінну
+#
+# result = variable_2 - variable_1  # більш вірний в написанні
 # print(result)
-# print(type(result))
-#
-# # 4.Перетворення стрічки у число:
-# # Користувач вводить рядок, який складається з цифр. Програма повинна перетворити його на число та вивести.
-# line = "23"
-# print(line)
-# print(type(line))
-#
-# line = int("23")
-# print(line)
-# print(type(line))
-#
-# # 5. Стрічкова конкатенація + математика:
-# # Користувач вводить два числа. Програма повинна вивести два прінти: перший — їхню суму,
-# # другий об'єднати їх. Якщо в нас числа 5 та 4, то результат повинен бути 9 та 54.
-# sample_text_1 = "5"
-# sample_text_2 = "4"
-# sample_text_1_int = int(sample_text_1)
-# sample_text_2_int = int(sample_text_2)
-# result = sample_text_1_int + sample_text_2_int
+
+# # залишок від ділення %
+# result = variable_1 % variable_3  # 2
 # print(result)
-# print(sample_text_1 + sample_text_2)
+
+# # скільки разів ми змогли поділити на ціло //
+# result = variable_1 // variable_3  # 6
+# print(result)
+#todo питання півбесіда Які типи данних є в Python.
+
+# # snake_case
+# the_amount_of_students  = 10
+# variable_4 = 10
+
+# Змінні не починаються з цифри, це забороненно
+# 2variable = 10
+# print(2variable)
+
+# STR
+# sample_text = "привіт, мене звуть Павло"
+# print(sample_text)
+# print(type(sample_text))
+
+# sample_text_1 = "999"
+# sample_text_2 = "1"
+# print(sample_text_1)
+# print(type(sample_text_1))
+# print(sample_text_1 + sample_text_2) # плюс з стрічками це конкатенація
 #
-#
-# # 6.Вік користувача:
-# # Запитати у користувача його рік народження, ім'я та який зараз рік (три змінні)
-# # та вивести на екран два прінти: ім'я та скільки років користувачу.
-# name = input("Your name?: ")
-# year_of_birth = int(input("Year of birth?: "))
-# year_for_now = int(input("What year is it now?: "))
-# result_age = (year_for_now - year_of_birth)
-# print("Hello: ", name)
-# print("Your age: ", result_age)
-#
-#
-# # 7.Перевод з цельсія в фаренгейт:
-# # Напишіть програму, яка запитує в користувача кількість градусів в цельсіях і повертає в фаренгейтах.
-# # Перетворення температури за шкалою Цельсія на температуру за шкалою Фаренгейта:{\displaystyle t_{F}={9 \over 5}\cdot t_{C}+32.}
-# celsius = int(input("Enter the number of degrees Celsius: "))
-# fahrenheit = celsius * 9/5 + 32
-# print("Result in fahrenheit: ", fahrenheit)
-#
-#
-# # 8.Перевод з фаренгейта в цельсій:
-# # Напишіть програму, яка запитує в користувача кількість градусів в фаренгейтах і повертає в цельсіях.
-# # Вам може здатися, що ця задача така ж, як попередня, але будьте уважні і перевірте результат вручну.
-# # Перетворення температури за шкалою Фаренгейта на температуру за шкалою Цельсія:{\displaystyle t_{C}={5 \over 9}\cdot \left(t_{F}-32\right).}
-# fahrenheit = int(input("Enter the number of degrees Fahrenheit: "))
-# celsius = fahrenheit * 5/9 - 32
-# print("Result in celsius: ", celsius)
-#
-#
-# # 9.Теорема Піфагора:
-# # Запитайте у користувача довжини катетів та виведіть на екран довжину гіпотенузи.
-# # Трикутник рівнобедрений. Що б взвести в степінь ставимо два рази множення
-# # два в степені три буде так 2**3, квадратний корінь з двух буде 2**(1/2)
-# a = int(input("Enter the length of the first leg?: "))
-# b = int(input("Enter the length of the second leg?: "))
-# c = a**2 + b**2
-# print("The length of the hypotenuse: ", int(c**(1/2)))
-# print("The length of the hypotenuse: ", c**(1/2))
-#
-#
-# # 10.Школярі та яблука
-# # n школярів ділять k яблук порівну, недільний залишок залишається в кошику.
-# # Скільки яблук дістанеться кожному школярові та скільки залишиться в кошику?
-# # Програма отримує на вхід числа n і k - цілі, додатні, не перевищують 10000.
-# students = int(input("How many students?: "))
-# apples = int(input("How many apples?: " ))
-# result_1 = apples / students
-# result_2 = apples % students
-# print("Every students has: ", int(result_1))
-# print("It's left: ", int(result_2))
-# цілі, додатні, не перевищують 10000 - поки не знаю як провірити!!!
-#
-#
-# # 12 Циферблад
-# # Запитайте в користувача скільки хвилин пройшло з початку доби.
-# # Визначте, скільки годин і хвилин покаже електронний годинник в цей момент і поверніть йому результат (формататування тексту при ввиводі не важливе).
-# # приклад для перевірки програми 1
-# # користувач ввів:150
-# # користувач отримує: 2, 30
-# # приклад для перевірки програми 2
-# # користувач ввів:1441
-# # користувач отримує: 0, 1
-# clock = int(input("Enter a number: "))
-# hours_day = 24 * 60
-# hours = (clock % hours_day) // 60
-# minutes = clock % 60
-# print(hours, ":", minutes)
-#
-#
-# # 13 Журавлики
-# # Петро, Катя та Сергій роблять з паперу журавликів. Разом вони зробили S журавликів.
-# # Скільки журавликів зробила кожна дитина, якщо відомо, що Петро та Сергій зробили однакову кількість журавликів,
-# # а Катя зробила в два рази більше журавликів, ніж Петро та Сергій разом.
-# # Вхідні дані
-# # Юзер вводить загальну кількість журавликів. Отримує три значення скільки зробив кожен (Петро, Катя та Сергій).
-# # x_1 = x + x #  зроблять Петро та Сергій
-# # x_2 = 2 x * 2 # так дізнаємося, скільки Катя зробить
-# # x_3 = 4x # Катя зробила
-# # x_4 = 2x + 4x # так дізнаємося, скільки разом зробили Петро, Сергій та Катя
-# # x_5 = 6x # разом зробили Петро, Сергій та Катя
-# summ = int(input("Enter a number: "))
-# x = summ // 6
-# petro = x
-# sergey = x
-# katya = (x + x) * 2
-# print("Petro: ", petro, "Sergey: ", sergey, "Katya: ", katya)
+# sample_text_1_int = int(sample_text_1)  # трансформування типу данних
+# sample_text_2_int = int(sample_text_2)  # трансформування типу данних
+# result  = (sample_text_2_int + sample_text_1_int)
+# result = 2
+# print(result)
+
+
+# age = int(input("скільки вам років"))  # default повертає str тип данних
+# print(age)
+# print(type(age))
