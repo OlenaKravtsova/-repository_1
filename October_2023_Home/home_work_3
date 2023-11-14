@@ -31,9 +31,9 @@
 # if len(list_a) == 0:
 #     print("У корзині порожньо")
 # elif len(list_a) > 0:
-#     print("У корзині ще лишились товари", list_a)
-# list_a.extend(input("Додайте в список: "))
+#     print("У корзині ще лишився список продуктів", list_a)
+# list_a.extend(input("Додати в список?: "))
 # if len(list_a) > 0:
-#     print("У корзині: ",  list_a)
+#     print("У корзині: ", list_a)
 # else:
 #      print("Кошик пустий. Пока!", list_a)
