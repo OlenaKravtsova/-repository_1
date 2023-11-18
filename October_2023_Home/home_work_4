@@ -1,0 +1,33 @@
+# Задача  3
+# Напишіть програму Банкомат. Втсановіть пін код для користувача (зробимо це константою).
+# Запитайте в користувача Пін якщо він введе три рази не вірно то напишіть що карта заблокована.
+# Використовуйте цикл while.
+# PIN = 1234
+# user = int(input("Введіть ПІН-код: "))
+# attempt = 1
+# while user != PIN and attempt < 3:
+#     attempt += 1
+#     print("Ви ввели неправильний пароль. Спробуйте ще раз!")
+#     user = int(input("Введіть ПІН-код: "))
+# if user == PIN:
+#     print("ПІН-код правильний!")
+# else:
+#     print("Карточка заблокована! Було викорастано мак-ну кількість спроб:", attempt)
+
+# Задача 4
+# Напишіть за допомогою f-string та format. Дві стрічки де буде підставлятись імя та вік з зміних
+# name = "оЛенА"
+# age = 21
+# f_string = тут ваш код формата ф-стрінг. | повино вийти -> Я Олена, мені 21 рік
+# format_string = тут ваш код формата формат стрінг  | повино вийти -> Я Олена, мені 21 рік
+# print(f_string)
+# print(format_string)
+# Ще по формату https://github.com/Pasha-lt/study/blob/main/format_and_join.py
+# name = "оЛенА"
+# age = 21
+# text_f_string = f"Я {name.title()}, мені {age} рік"
+# text_format_string_1 = "Я " + name.title() + ", мені " + str(age) + " рік "
+# text_format_string_2 = "Я {0}, мені {1} рік".format(name.title(), age)
+# print(text_f_string)
+# print(text_format_string_1)
+# print(text_format_string_2)
