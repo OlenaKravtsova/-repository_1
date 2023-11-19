@@ -5,19 +5,20 @@
 # або відсоток відповідно від ціни яку отримали раніше і пишете користувачу кінцеву суму.
 # * завдання з зірочкою не впливає на бал. Округліть суму якщо копійок більше ніж 44 то це буде + 1 гривня,
 # якщо менше. то тоді просто відкидаємо копійки від ціни.
+
 # user = input("Введіть вартість покупки (в розрізі товару): ")
 # user = user.split(" ")
 # new_list = []
 # interest_1 = 6.5
 # interest = float(interest_1)
 # amount_with_interest = []
-# 
+#
 # for i in range(len(user)):
 #      # new_list.append(user[i])
 #      # print(new_list)
 #      amount_with_interest.append(float(user[i]) + float(user[i]) * interest / 100)  # відсотки податків: вартість + 6.5
 # print(i, amount_with_interest)
-# 
+#
 # cuppon = input("Маєте купон на знижку? Введіть 'так' або 'ні': ")
 # if cuppon == 'так':
 #      coupon_type = input("Знижка на 'суму' чи 'відсоток'? Введіть 'сума' або 'відсоток': ")
@@ -35,10 +36,43 @@
 
 # Задача 2
 # Переробіть задачу з попереднього уроку враховуючи ваші знання з цього уроку, використайте цикл for in.
-
-
-
-
+# list_index = []
+# list_a_str = input("Введіть список продуктів: ")
+# list_a = list_a_str.split(" ")
+# print("Список продуктів: ", list_a)
+# for element in range(len(list_a)):
+#     list_index.append(element)
+#     print(list_index)
+# index = int(input("Введіть цифру, щоб викрислити елемент з списку: "))
+# list_a.pop(index-1)
+# print(list_a)
+# 
+# index = int(input("Введіть цифру, щоб викрислити елемент з списку: "))
+# list_a.pop(index-1)
+# print(list_a)
+# 
+# index = int(input("Введіть цифру, щоб викрислити елемент з списку: "))
+# list_a.pop(index-1)
+# print(list_a)
+# 
+# index = int(input("Введіть цифру, щоб викрислити елемент з списку: "))
+# list_a.pop(index-1)
+# print(list_a)
+# 
+# index = int(input("Введіть цифру, щоб викрислити елемент з списку: "))
+# list_a.pop(index-1)
+# print(list_a)
+# 
+# if len(list_a) == 0:
+#    print("У корзині порожньо!")
+# elif len(list_a) > 0:
+#    print("У корзині ще лишився список продуктів", list_a)
+# list_b = input("Бажаєте додати в список? Якщо ні, пропустіть цей крок: ")
+# list_a.extend(list_b.split())
+# if len(list_a) > 0:
+#    print("У корзині: ", list_a)
+# else:
+#     print("Кошик пустий. Пока!", list_a)
 
 
 # Задача  3
