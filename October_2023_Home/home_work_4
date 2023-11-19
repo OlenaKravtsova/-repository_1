@@ -5,7 +5,33 @@
 # або відсоток відповідно від ціни яку отримали раніше і пишете користувачу кінцеву суму.
 # * завдання з зірочкою не впливає на бал. Округліть суму якщо копійок більше ніж 44 то це буде + 1 гривня,
 # якщо менше. то тоді просто відкидаємо копійки від ціни.
-
+# user = input("Введіть вартість покупки (в розрізі товару): ")
+# user = user.split(" ")
+# new_list = []
+# interest_1 = 6.5
+# interest = float(interest_1)
+# amount_with_interest = []
+# 
+# for i in range(len(user)):
+#      # new_list.append(user[i])
+#      # print(new_list)
+#      amount_with_interest.append(float(user[i]) + float(user[i]) * interest / 100)  # відсотки податків: вартість + 6.5
+# print(i, amount_with_interest)
+# 
+# cuppon = input("Маєте купон на знижку? Введіть 'так' або 'ні': ")
+# if cuppon == 'так':
+#      coupon_type = input("Знижка на 'суму' чи 'відсоток'? Введіть 'сума' або 'відсоток': ")
+#      if coupon_type == 'сума':
+#           coupon_sum = float(input("Введіть значення': "))
+#           total_1 = sum(amount_with_interest) - coupon_sum
+#           print("До спавти: ", total_1)
+#      elif coupon_type == 'відсоток':
+#           percent = float(input("Введіть значення': "))
+#           total_2 = sum(amount_with_interest) - sum(amount_with_interest) * percent / 100
+#           print("До спавти: ", total_2)
+# else:
+#      total_sum = sum(amount_with_interest)
+#      print("До спавти (без знижок): ", total_sum)
 
 # Задача 2
 # Переробіть задачу з попереднього уроку враховуючи ваші знання з цього уроку, використайте цикл for in.
