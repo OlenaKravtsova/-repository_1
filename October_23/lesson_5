@@ -142,7 +142,9 @@
 # dict_4 = dict([(1, 2), ("key", "value")])
 # dict_5 = dict.fromkeys([3,4,5], "None")
 # dict_6 = {"Павло":["AQA", "Python"], "Dmytro":["DevOps", "bash"]}  # найпоширеніший
-#
+# dict_6.update(dict(height='720', blah='blah-blah'))                # можливість добавти деклька ключів і елементів в існуючий словник
+# dict_6 ["Олена"] = "table_addition"
+
 # print(dict_1, type(dict_1))
 # print(dict_2, type(dict_2))
 # print(dict_3, type(dict_3))
