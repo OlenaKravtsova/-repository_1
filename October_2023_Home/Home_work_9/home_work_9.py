@@ -6,39 +6,40 @@
 
 # # 2) Виберіть будь-яку помилку яка вам подобається і зробіть функцію яка перевіряє на цю помилку(в функції try except)
 #
-# # Функція для множення двох чисел
-# def multiply_numbers(number_1: str, number_2: str) -> int:
-#     """
-#     Перемножує два числа.
-#     Параметри:
-#     - number_1 (str): Перше число для множення.
-#     - number_2 (str): Друге число для множення.
-#     Повертає:
-#     int: Результат множення.
-#     """
-#     result = int(number_1) * int(number_2)
-#     return result
-#
-# # Функція для створення рядка із результатом
-# def create_result_string(result: int) -> str:
-#     """
-#     Створює рядок із результатом множення.
-#     Параметри:
-#     - result (int): Результат множення.
-#     Повертає:
-#     str: Рядок із результатом.
-#     """
-#     new_string_1 = f"ваш добуток {result}"
-#     return new_string_1
-#
-# # Обробки можливих помилок.
-# try:
-#     # Введення двох чисел
-#     result_mult = multiply_numbers(input("Enter your first number: "), input("Enter your second number: "))
-#     new_string = create_result_string(result_mult)
-#     print(result_mult)
-# except ValueError:
-#     print("Помилка: Будь ласка, введіть числа.")
+# Функція для множення двох чисел
+def multiply_numbers(number_1: str, number_2: str) -> int:
+    """
+    Перемножує два числа.
+    Параметри:
+    - number_1 (str): Перше число для множення.
+    - number_2 (str): Друге число для множення.
+    Повертає:
+    int: Результат множення.
+    """
+    result = int(number_1) * int(number_2)
+    return result
+
+# Функція для створення рядка із результатом
+def create_result_string(result: int) -> str:
+    """
+    Створює рядок із результатом множення.
+    Параметри:
+    - result (int): Результат множення.
+    Повертає:
+    str: Рядок із результатом.
+    """
+    new_string_1 = f"ваш добуток {result}"
+    return new_string_1
+
+# Обробки можливих помилок.
+try:
+    # Введення двох чисел
+    result_mult = multiply_numbers(input("Enter your first number: "), input("Enter your second number: "))
+    new_string = create_result_string(result_mult)
+    print(result_mult)
+except ValueError:
+    print("Помилка: Будь ласка, введіть числа.")
+
 
 
 # 3) зробіть функцію як ми робили з додаванням тільки замість двох чисел

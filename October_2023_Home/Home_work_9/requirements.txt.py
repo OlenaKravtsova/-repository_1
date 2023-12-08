@@ -1,7 +1,4 @@
-import requests
-# Отримати версію бібліотеки requests
-version = requests.__version__
+requests==2.31.0
+pytest==7.4.3
 
-# Вивести версію
-print(f"Версія бібліотеки requests: {version}")
-# Отриманий результат: Версія бібліотеки requests: 2.31.0
+
