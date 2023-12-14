@@ -1,5 +1,5 @@
 
-from home_work_7 import sorting_list_of_numbers, sorting_list_descending, sorting_list_of_words
+from Hellel.October_2023_Home.Home_work_7.home_work_7 import sorting_list_of_numbers, sorting_list_descending, sorting_list_of_words
 
 # Тест для sorting_list_of_numbers
 def test_sorting_list_of_numbers():

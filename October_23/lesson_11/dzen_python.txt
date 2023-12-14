@@ -1,0 +1,42 @@
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.[a]
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than right now.[b]
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea Ц let's do more of those!
+
+
+-----
+
+√арне краще за потворне.
+ќчевидне краще за неочевидне.
+ѕросте краще за складне.
+—кладне краще за заплутане.
+ѕлоске краще за вкладене.
+–озд≥лене Ї кращим за щ≥льне.
+Ћегк≥сть читанн€ маЇ значенн€.
+ќсоблив≥ випадки не Ї наст≥льки особливими, щоб порушувати правила.
+’оча практичн≥сть Ї важлив≥шою за бездоганн≥сть.
+ѕомилки н≥коли не повинн≥ бути замовчуваними.
+’≥ба що замовчуваними в≥дверто.
+«устр≥вши двозначн≥сть, в≥дкиньмо спокусу вгадати.
+ћаЇ бути один Ч ≥, бажано, т≥льки один Ч очевидний спос≥б зробити це.
+’оча спочатку в≥н може бути й не очевидним, €кщо ви не голландець.
+«араз Ч краще, н≥ж н≥коли.
+’оча н≥коли, найчаст≥ше, Ч краще, н≥ж просто зараз.
+якщо реал≥зац≥ю важко по€снити Ч задум поганий.
+якщо реал≥зац≥ю легко по€снити Ч можливо, задум добрий.
+ѕростори ≥мен Ч чудова р≥ч, тож роб≥мо њх б≥льше!

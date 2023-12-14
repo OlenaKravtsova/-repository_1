@@ -25,10 +25,10 @@
 # except ZeroDivisionError:
 #     print("На нуль у пайтоні ділити не можна")
 
-try:
-    print(int("ghjgjkhj"))
-except (ZeroDivisionError, ValueError):  # ловимо декілька помилок
-    print("На нуль у пайтоні ділити не можна")
+# try:
+#     print(int("ghjgjkhj"))
+# except (ZeroDivisionError, ValueError):  # ловимо декілька помилок
+#     print("На нуль у пайтоні ділити не можна")
 
 # Ми можемо ловити ексершени вверх по гіту
 
@@ -49,16 +49,16 @@ except (ZeroDivisionError, ValueError):  # ловимо декілька пом�
 #     print("На 0 не ділиться в пайтоні")
 #     print(f"we get error -> {e} <-")
 
-# # Pytest parametrize
-# def add_two_numbers(number_1:int|float, number_2:int|float) -> int|float:
-#     result = number_1 +number_2
-#     return result
+# Pytest parametrize
+def add_two_numbers(number_1:int|float, number_2:int|float) -> int|float:
+    result = number_1 +number_2
+    return result
 
-# type_1 = (1, 2, 3)
-# print(type(type_1), type_1)
-#
-# type_2 = 1, 2, 3
-# print(type(type_2), type_2)
+type_1 = (1, 2, 3)
+print(type(type_1), type_1)
+
+type_2 = 1, 2, 3
+print(type(type_2), type_2)
 
 # decorator python
 # def func_wrapper(func):
@@ -87,28 +87,28 @@ except (ZeroDivisionError, ValueError):  # ловимо декілька пом�
 # bar_1(333)
 # bar_2(333)
 
-# Декоратор по часу
-from datetime import datetime
-def func_wrapper_time(func):
-    def wrapper(*arg, **kwargs):
-        start = datetime.now()
-        print(start)
-        result = func(*arg, **kwargs)
-        delta_time = datetime.now() - start
-        print("Час виконання функції, такий: ", delta_time)
-        return result
-    return wrapper
-
-import time
-@func_wrapper_time
-def foo_1(*args, **kwargs):
-    print("foo_1")
-    time.sleep(1)
-
-@func_wrapper_time
-def foo_2(*args, **kwargs):
-    print("foo_2")
-    time.sleep(2)
-
-foo_1()
-foo_2()
+# # Декоратор по часу
+# from datetime import datetime
+# def func_wrapper_time(func):
+#     def wrapper(*arg, **kwargs):
+#         start = datetime.now()
+#         print(start)
+#         result = func(*arg, **kwargs)
+#         delta_time = datetime.now() - start
+#         print("Час виконання функції, такий: ", delta_time)
+#         return result
+#     return wrapper
+#
+# import time
+# @func_wrapper_time
+# def foo_1(*args, **kwargs):
+#     print("foo_1")
+#     time.sleep(1)
+#
+# @func_wrapper_time
+# def foo_2(*args, **kwargs):
+#     print("foo_2")
+#     time.sleep(2)
+#
+# foo_1()
+# foo_2()

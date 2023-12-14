@@ -33,7 +33,7 @@ from datetime import datetime
 def log_to_file(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        with open("log.txt", "a", encoding='utf-8') as log_file:
+        with open("log.txt", "a") as log_file:  #, encoding='utf-8'
             log_file.write(f"Вхід: {args}, Результат: {result}, Час: {datetime.now()}\n")
         return result
     return wrapper

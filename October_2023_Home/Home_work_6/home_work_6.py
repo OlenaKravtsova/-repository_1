@@ -60,7 +60,7 @@
 #     indexes = list(range(1, len(product_list) + 1)) #щоб індексація починалася з 1
 #     print("Список продуктів:", product_list)
 #     print("Індекси продуктів:", indexes)
-# 
+#
 # # Функція приймає список product_list і index, а потім видаляє елемент за вказаним індексом.
 # def remove_element_by_index(product_list, index):
 #     if 1 <= index <= len(product_list):
@@ -68,32 +68,32 @@
 #         print("Оновлений список продуктів:", product_list)
 #     else:
 #         print("Невірний індекс. Спробуйте ще раз.")
-# 
+#
 # # Функція main починається з отримання списку від користувача.
 # def main():
 #     user_input = input("Введіть список продуктів через пробіл: ")
 #     shopping_list = user_input.split()
-# 
+#
 # # Відображення списку та індексів та видалення елементів за індексами.
 #     for _ in range(5):
 #         display_list_and_indexes(shopping_list)
 #         index_to_remove = int(input("Введіть індекс для видалення: "))
 #         remove_element_by_index(shopping_list, index_to_remove)
-# 
+#
 # # Оновлений список після циклу видалення.
 #     if not shopping_list:
 #         print("У корзині порожньо!")
 #     else:
 #         print("У корзині ще є продукти:", shopping_list)
-# 
+#
 # # Додавання нових елементів до списку
 #     add_to_list = input("Бажаєте додати в список? Якщо ні, пропустіть цей крок: ")
 #     shopping_list.extend(add_to_list.split())
-# 
+#
 #     if shopping_list:
 #         print("У корзині:", shopping_list)
 #     else:
 #         print("Кошик пустий. До побачення!")
-#         
+#
 # # Робота функції завершена.
 # main()

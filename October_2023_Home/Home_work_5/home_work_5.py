@@ -8,7 +8,7 @@
 # addition_table = {}
 # subtraction_table = {}
 # division_table = {}
-# 
+#
 # # Заповнення словників значеннями
 # for i in range(2, 10):
 #     for j in range(2, 10):
@@ -17,7 +17,7 @@
 #         subtraction_table[f"{i}-{j}"] = i - j
 #         division_table[f"{i}/{j}"] = i / j
 #         # print(multiplication_table)
-# 
+#
 # # Збір всіх словників в один загальний словник
 # calculate_dict = {
 #     '+': addition_table,
@@ -26,7 +26,7 @@
 #     '/': division_table
 # }
 # # print(calculate_dict)
-# 
+#
 # user = input("Яку табличку ви хочете побачити? Введіть одну з операцій: '+', '-', '*', '/': ")
 # if user in calculate_dict:
 #     # Отримання та виведення таблички для обраної операції
