@@ -24,7 +24,7 @@ import requests
 #     def test_value_not_empty(self):
 #         # Тест 4: Перевірка, чи значення ключа "value" не порожнє
 #         assert self.response.json()["value"], "Value of 'value' is empty"
-
+#
 #     def test_check_year(self):
 #         assert int(self.response.json()["created_at"][:4]) > 1990, "All our jokes were created until 1990"
 #
@@ -54,64 +54,57 @@ import requests
 # тест на сам жарт
 # + 3 тести
 
-
-
-class ChuckNorrisJokeSearch:
-    BASE_URL = "https://api.chucknorris.io/jokes/search"
-
-    def __init__(self, query):
-        self.query = query
-
-    def search_joke(self):
-        response = requests.get(f"{self.BASE_URL}?query={self.query}")
-        return response
-
-# Використання класу для пошуку жарту
-search_instance = ChuckNorrisJokeSearch("python")  # Замініть "python" на ваш запит
-search_result = search_instance.search_joke()
-
-# Виведення результату пошуку
-print(search_result.json())
-
-# # Фікстура для пошуку жарту за конкретним словом
-# @pytest.fixture
-# def fixture_joke_search():
-#     joke_search = ChuckNorrisJokeSearch("internet")  # Замініть "python" на ваш запит
-#     return joke_search.get_jokes(), joke_search.get_jokes().status_code
-
-# Клас тестів для пошуку жарту за конкретним словом
-# class TestJokeSearch:
+# @pytest.mark.usefixtures("fixture_search")
+# class TestSearch:
 #
-#     @pytest.mark.usefixtures("fixture_joke_search")
-#     def test_status_code(self, fixture_joke_search):
-#         response, status_code = fixture_joke_search
+# # Тест, пошук жарту по конретному слову "internet"
+#     def test_search_result_contains_query(self):
+#         query = "internet"
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert query.lower() in joke["value"].lower(), f"Search result does not contain '{query}'"
 #
-#         # Тест 1: Перевірка, чи статус код дорівнює 200
-#         assert status_code == 200, f"Unexpected status code: {status_code}"
+# # Тест на статус код
+#     def test_search_status_code(self):
+#         assert self.status_code == 200
 #
-#     @pytest.mark.usefixtures("fixture_joke_search")
-#     def test_number_of_jokes(self, fixture_joke_search):
-#         response, _ = fixture_joke_search
+#  # Тест, чи кількість жартів у відповіді співпадає зі значенням "total"
+#  у відповіді https://api.chucknorris.io/jokes/search?query=jokes
+#     def test_number_of_search_results_with_keyword(self):
+#         query = "jokes"
+#         data = self.response.json()
+#         # Отримання фактичної кількості жартів у відповіді
+#         actual_number_of_jokes = len(data["result"])
+#         # Отримання кількості жартів, вказаної в полі "total" у відповіді
+#         expected_number_of_jokes = data["total"]
+#         # Перевірка, чи кількість жартів співпадає зі значенням "total"
+#         assert actual_number_of_jokes == expected_number_of_jokes
 #
-#         # Тест 2: Перевірка, чи кількість жартів не порожня
-#         assert response.json()["total"] > 0, "Number of jokes is empty"
 #
-#     @pytest.mark.usefixtures("fixture_joke_search")
-#     def test_joke_content(self, fixture_joke_search):
-#         response, _ = fixture_joke_search
+# # Перевірка, чи конкретний жарт присутній в результатах пошуку
+#     def test_specific_joke_present(self):
+#         specific_joke = "Chuck Norris tells black jokes without looking over his shoulder"
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert any(specific_joke.lower() in joke["value"].lower() for joke in
+#                         jokes), "Specific joke is not present in the search results"
 #
-#         # Тест 3: Перевірка, чи сам жарт не порожній
-#         assert response.json()["result"][0]["value"], "Joke content is empty"
+# # Тест, чи кожен жарт має ідентифікатор (ключ "id")
+#     def test_each_joke_has_id(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "id" in joke, "Joke does not have an 'id' key"
 #
-# # Виклик класу тестів
-# test_joke_search_instance = TestJokeSearch()
-# test_joke_search_instance.test_status_code()
-# test_joke_search_instance.test_number_of_jokes()
-# test_joke_search_instance.test_joke_content()
-
-
-
-
-
-
-
+#
+# # Тест, чи кожен жарт має категорії (ключ "categories")
+#     def test_each_joke_has_categories(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "categories" in joke, "Joke does not have a 'categories' key"
+#
+#
+# # Тест, чи кожен жарт має URL (ключ "url")
+#     def test_each_joke_has_url(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "url" in joke, "Joke does not have a 'url' key"
