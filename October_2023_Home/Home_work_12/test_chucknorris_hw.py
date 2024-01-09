@@ -3,109 +3,109 @@ import pytest
 import requests
 
 
-# ÔÂÂ‚≥ËÚË ÔÓÎˇ "icon_url" ˜Ë ‚≥Ì ÌÂ ÔÛÒÚËÈ + ˜Ë ˆÂ Í‡ÚËÌÍ‡,  - 2 ÚÂÒÚ‡
-# ÔÂÂ‚≥ËÚË ˜Ë ∫ ÍÎ˛˜ "value"  ≥ ÔÂÂ‚≥ËÚË ÈÓ„Ó ÁÌ‡˜ÂÌÌˇ - 2 ÚÂÒÚ‡
-@pytest.mark.usefixtures("fixture_random")
-class TestRandom:
-
-    def test_icon_url_not_empty(self):
-        # “ÂÒÚ 1: œÂÂ‚≥Í‡, ˜Ë "icon_url" ÌÂ ÔÓÓÊÌ≥È
-        assert self.response.json()["icon_url"], "'icon_url' is empty"
-
-    def test_icon_url_is_image(self):
-        # “ÂÒÚ 2: œÂÂ‚≥Í‡, ˜Ë "icon_url" ∫ ÔÓÒËÎ‡ÌÌˇÏ Ì‡ ÁÓ·‡ÊÂÌÌˇ
-        icon_url = self.response.json().get("icon_url")
-        image_extensions = [".jpg", ".jpeg", ".png"]
-        assert any(icon_url.endswith(ext) for ext in image_extensions), "'icon_url' is not an image URL"
-
-    def test_value_key_exists(self):
-        # “ÂÒÚ 3: œÂÂ‚≥Í‡, ˜Ë ≥ÒÌÛ∫ ÍÎ˛˜ "value" ‚ Ó·'∫ÍÚ≥ Ê‡ÚÛ
-        assert "value" in self.response.json(), "Key 'value' does not exist"
-
-    def test_value_not_empty(self):
-        # “ÂÒÚ 4: œÂÂ‚≥Í‡, ˜Ë ÁÌ‡˜ÂÌÌˇ ÍÎ˛˜‡ "value" ÌÂ ÔÓÓÊÌ∫
-        assert self.response.json()["value"], "Value of 'value' is empty"
-
-    def test_check_year(self):
-        assert int(self.response.json()["created_at"][:4]) > 1990, "All our jokes were created until 1990"
-
-    def test_status_code(self):
-        assert self.status_code == 200
-
-def test_category():
-    URL = "https://api.chucknorris.io/jokes/categories"
-    response = requests.request(method="GET", url=URL)
-    print(response.json())
-
-
-@pytest.mark.parametrize("category",
-                         requests.request(method="GET", url="https://api.chucknorris.io/jokes/categories").json())
-def test_categories(category):
-    URL = f"https://api.chucknorris.io/jokes/random?category={category}"
-    response = requests.request(method="GET", url=URL)
-    assert len(response.json()["id"]) == 22
-
-
-
-# «Ó·ËÚË ÓÍÂÏËÈ ÍÎ‡Ò
-# ÔÓ¯ÛÍ Ê‡ÚÛ ÔÓ ÍÓÌÂÚÌÓÏÛ ÒÎÓ‚Û  https://api.chucknorris.io/jokes/search?query={query}
-# ÁÓ·ËÚË ÍÎ‡ÒÓÏÛ Ù≥ÍÒÚÛÛ
-# ÚÂÒÚ Ì‡ ÒÚ‡ÚÛÒ ÍÓ‰
-# ÚÂÒÚ Ì‡ Í≥Î¸Í≥ÒÚ¸ Ê‡Ú≥‚
-# ÚÂÒÚ Ì‡ Ò‡Ï Ê‡Ú
-# + 3 ÚÂÒÚË
-
-@pytest.mark.usefixtures("fixture_search")
-class TestSearch:
-
-# “ÂÒÚ, ÔÓ¯ÛÍ Ê‡ÚÛ ÔÓ ÍÓÌÂÚÌÓÏÛ ÒÎÓ‚Û "internet"
-    def test_search_result_contains_query(self):
-        query = "internet"
-        jokes = self.response.json()["result"]
-        for joke in jokes:
-            assert query.lower() in joke["value"].lower(), f"Search result does not contain '{query}'"
-
-# “ÂÒÚ Ì‡ ÒÚ‡ÚÛÒ ÍÓ‰
-    def test_search_status_code(self):
-        assert self.status_code == 200
-
- # “ÂÒÚ, ˜Ë Í≥Î¸Í≥ÒÚ¸ Ê‡Ú≥‚ Û ‚≥‰ÔÓ‚≥‰≥ ÒÔ≥‚Ô‡‰‡∫ Á≥ ÁÌ‡˜ÂÌÌˇÏ "total"
- # Û ‚≥‰ÔÓ‚≥‰≥ https://api.chucknorris.io/jokes/search?query=jokes
-    def test_number_of_search_results_with_keyword(self):
-        query = "jokes"
-        data = self.response.json()
-        # ŒÚËÏ‡ÌÌˇ Ù‡ÍÚË˜ÌÓø Í≥Î¸ÍÓÒÚ≥ Ê‡Ú≥‚ Û ‚≥‰ÔÓ‚≥‰≥
-        actual_number_of_jokes = len(data["result"])
-        # ŒÚËÏ‡ÌÌˇ Í≥Î¸ÍÓÒÚ≥ Ê‡Ú≥‚, ‚Í‡Á‡ÌÓø ‚ ÔÓÎ≥ "total" Û ‚≥‰ÔÓ‚≥‰≥
-        expected_number_of_jokes = data["total"]
-        # œÂÂ‚≥Í‡, ˜Ë Í≥Î¸Í≥ÒÚ¸ Ê‡Ú≥‚ ÒÔ≥‚Ô‡‰‡∫ Á≥ ÁÌ‡˜ÂÌÌˇÏ "total"
-        assert actual_number_of_jokes == expected_number_of_jokes
-
-
-# œÂÂ‚≥Í‡, ˜Ë ÍÓÌÍÂÚÌËÈ Ê‡Ú ÔËÒÛÚÌ≥È ‚ ÂÁÛÎ¸Ú‡Ú‡ı ÔÓ¯ÛÍÛ
-    def test_specific_joke_present(self):
-        specific_joke = "Chuck Norris tells black jokes without looking over his shoulder"
-        jokes = self.response.json()["result"]
-        for joke in jokes:
-            assert any(specific_joke.lower() in joke["value"].lower() for joke in
-                        jokes), "Specific joke is not present in the search results"
-
-# “ÂÒÚ, ˜Ë ÍÓÊÂÌ Ê‡Ú Ï‡∫ ≥‰ÂÌÚËÙ≥Í‡ÚÓ (ÍÎ˛˜ "id")
-    def test_each_joke_has_id(self):
-        jokes = self.response.json()["result"]
-        for joke in jokes:
-            assert "id" in joke, "Joke does not have an 'id' key"
-
-
-# “ÂÒÚ, ˜Ë ÍÓÊÂÌ Ê‡Ú Ï‡∫ Í‡ÚÂ„Ó≥ø (ÍÎ˛˜ "categories")
-    def test_each_joke_has_categories(self):
-        jokes = self.response.json()["result"]
-        for joke in jokes:
-            assert "categories" in joke, "Joke does not have a 'categories' key"
-
-
-# “ÂÒÚ, ˜Ë ÍÓÊÂÌ Ê‡Ú Ï‡∫ URL (ÍÎ˛˜ "url")
-    def test_each_joke_has_url(self):
-        jokes = self.response.json()["result"]
-        for joke in jokes:
-            assert "url" in joke, "Joke does not have a 'url' key"
+# # –ø–µ—Ä–µ–≤—ñ—Ä–∏—Ç–∏ –ø–æ–ª—è "icon_url" —á–∏ –≤—ñ–Ω –Ω–µ –ø—É—Å—Ç–∏–π + —á–∏ —Ü–µ –∫–∞—Ä—Ç–∏–Ω–∫–∞,  - 2 —Ç–µ—Å—Ç–∞
+# # –ø–µ—Ä–µ–≤—ñ—Ä–∏—Ç–∏ —á–∏ —î –∫–ª—é—á "value"  —ñ –ø–µ—Ä–µ–≤—ñ—Ä–∏—Ç–∏ –π–æ–≥–æ –∑–Ω–∞—á–µ–Ω–Ω—è - 2 —Ç–µ—Å—Ç–∞
+# @pytest.mark.usefixtures("fixture_random")
+# class TestRandom:
+# 
+#     def test_icon_url_not_empty(self):
+#         # –¢–µ—Å—Ç 1: –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ "icon_url" –Ω–µ –ø–æ—Ä–æ–∂–Ω—ñ–π
+#         assert self.response.json()["icon_url"], "'icon_url' is empty"
+# 
+#     def test_icon_url_is_image(self):
+#         # –¢–µ—Å—Ç 2: –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ "icon_url" —î –ø–æ—Å–∏–ª–∞–Ω–Ω—è–º –Ω–∞ –∑–æ–±—Ä–∞–∂–µ–Ω–Ω—è
+#         icon_url = self.response.json().get("icon_url")
+#         image_extensions = [".jpg", ".jpeg", ".png"]
+#         assert any(icon_url.endswith(ext) for ext in image_extensions), "'icon_url' is not an image URL"
+# 
+#     def test_value_key_exists(self):
+#         # –¢–µ—Å—Ç 3: –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ —ñ—Å–Ω—É—î –∫–ª—é—á "value" –≤ –æ–±'—î–∫—Ç—ñ –∂–∞—Ä—Ç—É
+#         assert "value" in self.response.json(), "Key 'value' does not exist"
+# 
+#     def test_value_not_empty(self):
+#         # –¢–µ—Å—Ç 4: –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ –∑–Ω–∞—á–µ–Ω–Ω—è –∫–ª—é—á–∞ "value" –Ω–µ –ø–æ—Ä–æ–∂–Ω—î
+#         assert self.response.json()["value"], "Value of 'value' is empty"
+# 
+#     def test_check_year(self):
+#         assert int(self.response.json()["created_at"][:4]) > 1990, "All our jokes were created until 1990"
+# 
+#     def test_status_code(self):
+#         assert self.status_code == 200
+# 
+# def test_category():
+#     URL = "https://api.chucknorris.io/jokes/categories"
+#     response = requests.request(method="GET", url=URL)
+#     print(response.json())
+# 
+# 
+# @pytest.mark.parametrize("category",
+#                          requests.request(method="GET", url="https://api.chucknorris.io/jokes/categories").json())
+# def test_categories(category):
+#     URL = f"https://api.chucknorris.io/jokes/random?category={category}"
+#     response = requests.request(method="GET", url=URL)
+#     assert len(response.json()["id"]) == 22
+# 
+# 
+# 
+# # –ó—Ä–æ–±–∏—Ç–∏ –æ–∫—Ä–µ–º–∏–π –∫–ª–∞—Å
+# # –ø–æ—à—É–∫ –∂–∞—Ä—Ç—É –ø–æ –∫–æ–Ω—Ä–µ—Ç–Ω–æ–º—É —Å–ª–æ–≤—É  https://api.chucknorris.io/jokes/search?query={query}
+# # –∑—Ä–æ–±–∏—Ç–∏ –∫–ª–∞—Å–æ–º—É —Ñ—ñ–∫—Å—Ç—É—Ä—É
+# # —Ç–µ—Å—Ç –Ω–∞ —Å—Ç–∞—Ç—É—Å –∫–æ–¥
+# # —Ç–µ—Å—Ç –Ω–∞ –∫—ñ–ª—å–∫—ñ—Å—Ç—å –∂–∞—Ä—Ç—ñ–≤
+# # —Ç–µ—Å—Ç –Ω–∞ —Å–∞–º –∂–∞—Ä—Ç
+# # + 3 —Ç–µ—Å—Ç–∏
+# 
+# @pytest.mark.usefixtures("fixture_search")
+# class TestSearch:
+# 
+# # –¢–µ—Å—Ç, –ø–æ—à—É–∫ –∂–∞—Ä—Ç—É –ø–æ –∫–æ–Ω—Ä–µ—Ç–Ω–æ–º—É —Å–ª–æ–≤—É "internet"
+#     def test_search_result_contains_query(self):
+#         query = "internet"
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert query.lower() in joke["value"].lower(), f"Search result does not contain '{query}'"
+# 
+# # –¢–µ—Å—Ç –Ω–∞ —Å—Ç–∞—Ç—É—Å –∫–æ–¥
+#     def test_search_status_code(self):
+#         assert self.status_code == 200
+# 
+#  # –¢–µ—Å—Ç, —á–∏ –∫—ñ–ª—å–∫—ñ—Å—Ç—å –∂–∞—Ä—Ç—ñ–≤ —É –≤—ñ–¥–ø–æ–≤—ñ–¥—ñ —Å–ø—ñ–≤–ø–∞–¥–∞—î –∑—ñ –∑–Ω–∞—á–µ–Ω–Ω—è–º "total"
+#  # —É –≤—ñ–¥–ø–æ–≤—ñ–¥—ñ https://api.chucknorris.io/jokes/search?query=jokes
+#     def test_number_of_search_results_with_keyword(self):
+#         query = "jokes"
+#         data = self.response.json()
+#         # –û—Ç—Ä–∏–º–∞–Ω–Ω—è —Ñ–∞–∫—Ç–∏—á–Ω–æ—ó –∫—ñ–ª—å–∫–æ—Å—Ç—ñ –∂–∞—Ä—Ç—ñ–≤ —É –≤—ñ–¥–ø–æ–≤—ñ–¥—ñ
+#         actual_number_of_jokes = len(data["result"])
+#         # –û—Ç—Ä–∏–º–∞–Ω–Ω—è –∫—ñ–ª—å–∫–æ—Å—Ç—ñ –∂–∞—Ä—Ç—ñ–≤, –≤–∫–∞–∑–∞–Ω–æ—ó –≤ –ø–æ–ª—ñ "total" —É –≤—ñ–¥–ø–æ–≤—ñ–¥—ñ
+#         expected_number_of_jokes = data["total"]
+#         # –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ –∫—ñ–ª—å–∫—ñ—Å—Ç—å –∂–∞—Ä—Ç—ñ–≤ —Å–ø—ñ–≤–ø–∞–¥–∞—î –∑—ñ –∑–Ω–∞—á–µ–Ω–Ω—è–º "total"
+#         assert actual_number_of_jokes == expected_number_of_jokes
+# 
+# 
+# # –ü–µ—Ä–µ–≤—ñ—Ä–∫–∞, —á–∏ –∫–æ–Ω–∫—Ä–µ—Ç–Ω–∏–π –∂–∞—Ä—Ç –ø—Ä–∏—Å—É—Ç–Ω—ñ–π –≤ —Ä–µ–∑—É–ª—å—Ç–∞—Ç–∞—Ö –ø–æ—à—É–∫—É
+#     def test_specific_joke_present(self):
+#         specific_joke = "Chuck Norris tells black jokes without looking over his shoulder"
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert any(specific_joke.lower() in joke["value"].lower() for joke in
+#                         jokes), "Specific joke is not present in the search results"
+# 
+# # –¢–µ—Å—Ç, —á–∏ –∫–æ–∂–µ–Ω –∂–∞—Ä—Ç –º–∞—î —ñ–¥–µ–Ω—Ç–∏—Ñ—ñ–∫–∞—Ç–æ—Ä (–∫–ª—é—á "id")
+#     def test_each_joke_has_id(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "id" in joke, "Joke does not have an 'id' key"
+# 
+# 
+# # –¢–µ—Å—Ç, —á–∏ –∫–æ–∂–µ–Ω –∂–∞—Ä—Ç –º–∞—î –∫–∞—Ç–µ–≥–æ—Ä—ñ—ó (–∫–ª—é—á "categories")
+#     def test_each_joke_has_categories(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "categories" in joke, "Joke does not have a 'categories' key"
+# 
+# 
+# # –¢–µ—Å—Ç, —á–∏ –∫–æ–∂–µ–Ω –∂–∞—Ä—Ç –º–∞—î URL (–∫–ª—é—á "url")
+#     def test_each_joke_has_url(self):
+#         jokes = self.response.json()["result"]
+#         for joke in jokes:
+#             assert "url" in joke, "Joke does not have a 'url' key"
