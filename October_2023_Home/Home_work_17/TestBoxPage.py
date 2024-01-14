@@ -1,4 +1,5 @@
 coding: 'utf-8'
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
@@ -22,6 +23,27 @@ class TestBoxPage:
 
     def fill_full_name_field(self, text: str) -> None:
         self.driver.find_element(*self.full_name_field).send_keys(text)
+
+    # реалізувати(метод clear and fill) для полів Email, Current Address, Permanent Address
+    # Залити на окрему бранчу на гітхабі назва довільна(по можливості)
+
+    def full_email_field(self) -> None:
+        self.driver.find_element(*self.full_email_field).clear()
+
+    def fill_full_email_field(self, text: str) -> None:
+        self.driver.find_element(*self.full_email_field).send_keys(text)
+
+    def full_current_text_area_field(self) -> None:
+        self.driver.find_element(*self.full_current_text_area_field).clear()
+
+    def fill_full_current_text_area_field(self, text: str) -> None:
+        self.driver.find_element(*self.full_current_text_area_field).send_keys(text)
+
+    def full_permanent_text_area_field(self) -> None:
+        self.driver.find_element(*self.full_permanent_text_area_field).clear()
+
+    def fill_full_permanent_text_area_field(self, text: str) -> None:
+        self.driver.find_element(*self.full_permanent_text_area_field).send_keys(text)
 
     def clic_sudmit(self) -> None:
         self.driver.find_element(*self.submit_btn).click()
