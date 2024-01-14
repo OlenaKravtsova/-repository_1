@@ -27,19 +27,19 @@ class TestBoxPage:
     # реалізувати(метод clear and fill) для полів Email, Current Address, Permanent Address
     # Залити на окрему бранчу на гітхабі назва довільна(по можливості)
 
-    def full_email_field(self) -> None:
+    def clear_full_email_field(self) -> None:
         self.driver.find_element(*self.full_email_field).clear()
 
     def fill_full_email_field(self, text: str) -> None:
         self.driver.find_element(*self.full_email_field).send_keys(text)
 
-    def full_current_text_area_field(self) -> None:
+    def clear_full_current_text_area_field(self) -> None:
         self.driver.find_element(*self.full_current_text_area_field).clear()
 
     def fill_full_current_text_area_field(self, text: str) -> None:
         self.driver.find_element(*self.full_current_text_area_field).send_keys(text)
 
-    def full_permanent_text_area_field(self) -> None:
+    def clear_full_permanent_text_area_field(self) -> None:
         self.driver.find_element(*self.full_permanent_text_area_field).clear()
 
     def fill_full_permanent_text_area_field(self, text: str) -> None:
