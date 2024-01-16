@@ -1,2 +1,2 @@
-def test_text_box ():
+def test_text_box():
     pass

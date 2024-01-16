@@ -1,9 +1,0 @@
-coding: 'utf-8'
-import pytest
-from selenium import webdriver
-
-@pytest.fixture
-def chrome():
-    driver = webdriver.Chrome(executable_path="/Users/pavlokostyshen/Desktop/hillel/Hillel_october_23/lesson_18/chromedriver")
-    yield driver
-    driver.quit()

@@ -1,15 +1,14 @@
-coding: 'utf-8'
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+
 
 class TextBoxPage:
     def __init__(self, driver: WebDriver):
         self.url = "https://demoqa.com/text-box"
         self.driver = driver
         self.full_name_field = (By.ID, "userName")
-        # self.full_name_field = (By.XPATH, '// input[ @ id ="userName"]') #äóáëþâàííÿ äîñòóïà äî userName ÷åðåç XPATH
-        self.full_email_field - (By.ID, "#userEmail")
+        # self.full_name_field = (By.XPATH, '// input[ @ id ="userName"]') #Ð´ÑƒÐ±Ð»ÑŽÐ²Ð°Ð½Ð½Ñ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ð´Ð¾ userName Ñ‡ÐµÑ€ÐµÐ· XPATH
+        self.full_email_field = (By.ID, "#userEmail")
         self.full_current_text_area_field = (By.CSS_SELECTOR, "text#currentAddress")
         self.full_permanent_text_area_field = (By.CSS_SELECTOR, "text#permanentAddress")
         self.submit_btn = (By.ID, "submit")
@@ -48,17 +47,20 @@ class TextBoxPage:
     def fill_permanent_address_field(self, text: str) -> None:
         self.driver.find_element(*self.full_permanent_text_area_field).send_keys(text)
 
-    def clic_sudmit(self) -> None:
+    def click_submit(self) -> None:
         self.driver.find_element(*self.submit_btn).click()
 
     def get_result_fullname(self):
-        return self.driver.find_element(*self.result_fullname).text
+       return self.driver.find_element(*self.result_fullname).text
 
     def get_result_email(self):
-        return self.driver.find_element(*self.result_email).text
+       return self.driver.find_element(*self.result_email).text
 
     def get_result_current_address(self):
-        return self.driver.find_element(*self.result_curr_addr).text
+       return self.driver.find_element(*self.result_curr_addr).text
 
     def get_result_permanent_address(self):
-        return self.driver.find_element(*self.result_perm_addr).text
+       return self.driver.find_element(*self.result_perm_addr).text
+
+    def scroll_down(self) -> None:
+        self.driver.execute_script("window.scrollBy(0, 500);")
