@@ -1,16 +1,21 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class TextBoxPage:
     def __init__(self, driver: WebDriver):
+        """
+
+        :rtype: object
+        """
         self.url = "https://demoqa.com/text-box"
         self.driver = driver
         self.full_name_field = (By.ID, "userName")
-        # self.full_name_field = (By.XPATH, '// input[ @ id ="userName"]') #дублювання доступа до userName через XPATH
-        self.full_email_field = (By.ID, "#userEmail")
-        self.full_current_text_area_field = (By.CSS_SELECTOR, "text#currentAddress")
-        self.full_permanent_text_area_field = (By.CSS_SELECTOR, "text#permanentAddress")
+        # self.full_name_field = (By.XPATH, "//input[@id='userName']")  # дублювання доступу до поля юзер нейм, але через xPAXTH
+        self.full_email_field = (By.ID, "userEmail")
+        self.full_current_text_area_field = (By.CSS_SELECTOR, "textarea#currentAddress")
+        self.full_permanent_text_area_field = (By.CSS_SELECTOR, "textarea#permanentAddress")  # для різноманіття, можна було по айті як попереднє
         self.submit_btn = (By.ID, "submit")
 
         self.result_fullname = (By.ID, "name")
@@ -29,22 +34,25 @@ class TextBoxPage:
     def fill_full_name_field(self, text: str) -> None:
         self.driver.find_element(*self.full_name_field).send_keys(text)
 
-    def clear_email_field(self) -> None:
+    def clear_email_field(self) ->None:
         self.driver.find_element(*self.full_email_field).clear()
 
-    def fill_email_field(self, text: str) -> None:
+    def fill_full_email_field(self, text: str) ->None:
         self.driver.find_element(*self.full_email_field).send_keys(text)
 
-    def clear_current_address_field(self) -> None:
+    def get_email_field_element(self) -> WebElement:
+        return self.driver.find_element(*self.full_email_field)
+
+    def clear_current_address_field(self) ->None:
         self.driver.find_element(*self.full_current_text_area_field).clear()
 
-    def fill_current_address_field(self, text: str) -> None:
+    def fill_current_address_field(self, text: str) ->None:
         self.driver.find_element(*self.full_current_text_area_field).send_keys(text)
 
-    def clear_permanent_address_field(self) -> None:
+    def clear_permanent_address_field(self) ->None:
         self.driver.find_element(*self.full_permanent_text_area_field).clear()
 
-    def fill_permanent_address_field(self, text: str) -> None:
+    def fill_permanent_address_field(self, text: str) ->None:
         self.driver.find_element(*self.full_permanent_text_area_field).send_keys(text)
 
     def click_submit(self) -> None:
