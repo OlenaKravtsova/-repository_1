@@ -14,29 +14,30 @@ class TestElementsPage:
 
     # #  todo перевірити відповіді всіх 33 елементів в елементс
     # #  assert elements[2] == "Radio Button"
-    #
-    # # # Список з елементами, які потрібно перевірити
-    # elements_to_check = ["Text Box", "Check Box", "Radio Button", "Web Tables", "Buttons", "Links",
-    #                      "Broken Links - Images", "Upload and Download", "Dynamic Properties", "", "", "", "", "", "",
-    #                      "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-    #
-    # @pytest.mark.parametrize("expected_element", elements_to_check)
-    # def test_page(self, chrome, expected_element):
-    #     page = ElementsPage(chrome)
-    #     page.open()
-    #     elements = page.get_elements_page_categories()
-    #     assert expected_element in elements
 
-    def test_is_button_enable(self, chrome):
-        page = PageDynamicProperties(chrome)
-        self.open()
-        button: WebElement = page.disable_enable_button()
-        button.click()
+    # # Список з елементами, які потрібно перевірити
+    expected_element = ["Text Box", "Check Box", "Radio Button", "Web Tables", "Buttons", "Links",
+                         "Broken Links - Images", "Upload and Download", "Dynamic Properties", "", "", "", "", "", "",
+                         "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 
-    def test_is_button_shown(self, chrome):
-        page = PageDynamicProperties(chrome).open()  # короткий запис
-        button: WebElement = page.button_invisible_visible()
-        button.click()
+    @pytest.mark.parametrize("expected_element, result", [
+        (0, "Text Box"),
+        (1, "Check Box"),
+        (2, "Radio Button"),
+        (3, "Web Tables"),
+        (4, "Buttons"),
+        (5, "Links"),
+        (6, "Broken Links - Images"),
+        (7, "Upload and Download"),
+        (8, "Dynamic Properties")
+    ] + [(x, "") for x in range(9, 33)])
+    def test_page_parametrize(self, chrome, expected_element, result):
+        page = ElementsPage(chrome)
+        page.open()
+        elements = page.get_elements_page_categories()
+        assert elements[expected_element] == result
+
+
 
 
 
