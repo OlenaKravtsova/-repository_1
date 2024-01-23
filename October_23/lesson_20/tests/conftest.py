@@ -9,3 +9,12 @@ def chrome():
     driver = webdriver.Chrome(service=s)
     yield driver
     driver.quit()
+
+
+@pytest.fixture(scope="class")
+def firefox(request):
+    s = Service(r'C:\Testgit\Hellel\October_23\lesson_20\geckodriver.exe')
+    driver = webdriver.Firefox(service=s)
+    request.cls.driver = driver
+    yield driver
+    driver.quit()

@@ -1,4 +1,4 @@
-from Hellel.October_23.lesson_18.TextBoxPage import TextBoxPage
+from Hellel.October_23.lesson_20.TextBoxPage import TextBoxPage
 
 
 class TestTextBox:
