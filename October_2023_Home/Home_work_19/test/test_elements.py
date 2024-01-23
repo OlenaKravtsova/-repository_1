@@ -11,10 +11,10 @@ class TestElementsPage:
     #     assert len(elements) == 33
     #     pass
 
-    # #  todo перевірити відповіді всіх 33 елементів в елементс
+    # #  todo РїРµСЂРµРІС–СЂРёС‚Рё РІС–РґРїРѕРІС–РґС– РІСЃС–С… 33 РµР»РµРјРµРЅС‚С–РІ РІ РµР»РµРјРµРЅС‚СЃ
     # #  assert elements[2] == "Radio Button"
 
-    # # Список з елементами, які потрібно перевірити
+    # # РЎРїРёСЃРѕРє Р· РµР»РµРјРµРЅС‚Р°РјРё, СЏРєС– РїРѕС‚СЂС–Р±РЅРѕ РїРµСЂРµРІС–СЂРёС‚Рё
     expected_element = ["Text Box", "Check Box", "Radio Button", "Web Tables", "Buttons", "Links",
                          "Broken Links - Images", "Upload and Download", "Dynamic Properties", "", "", "", "", "", "",
                          "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -35,15 +35,3 @@ class TestElementsPage:
         page.open()
         elements = page.get_elements_page_categories()
         assert elements[expected_element] == result
-
-
-
-
-
-
-
-
-
-
-
-
