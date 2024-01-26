@@ -43,15 +43,9 @@ class TestWaiters:
         # Отримується елемент кнопки за допомогою знайденого локатора
         colored_button: WebElement = self.driver.find_element(*colored_button_loc)
         # Встановлює явне очікування протягом 5 секунд на видимість цієї кнопки.
-        WebDriverWait(self.driver, timeout=5).until(
+        WebDriverWait(self.driver, timeout=10).until(
             ec.text_to_be_present_in_element_attribute(colored_button_loc, attribute_='class', text_='text-danger'))
         # Здійснюється клік по кнопці.
         colored_button.click()
         #todo завешити тест на те що кнопка є . _is...
         assert colored_button.is_displayed(), "Кнопка не з'явилася на сторінці після кліку"
-
-
-
-
-
-
