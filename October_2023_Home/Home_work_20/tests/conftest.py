@@ -16,7 +16,7 @@ def firefox(request):
     s = Service(r'C:\Testgit\Hellel\October_2023_Home\Home_work_20\geckodriver.exe')
     driver = webdriver.Firefox(service=s)
     request.cls.driver = driver
-    driver.implicitly_wait(5) #затримка на 5 сек - імплісіті вейт
+    driver.implicitly_wait(5)
     yield driver
     driver.quit()
 
