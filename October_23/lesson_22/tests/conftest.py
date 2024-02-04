@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
+
 @pytest.fixture
 def chrome():
     s = Service(r'C:\Testgit\Hellel\October_23\Hrom\chromedriver.exe')
@@ -27,4 +28,3 @@ def chrome_class(request):
     request.cls.driver = driver
     yield driver
     driver.quit()
-

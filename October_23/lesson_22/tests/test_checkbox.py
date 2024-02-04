@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from Hellel.October_23.lesson_21.CheckboxPage import CheckboxPage
+from Hellel.October_23.lesson_22.CheckboxPage import CheckboxPage
 
 
 @pytest.mark.usefixtures("chrome_class")
@@ -12,3 +12,6 @@ class TestCheckboxPage:
         self.page.open()
         self.page.expand_folder("home")
         self.page.mark_folder("home")
+        self.page.collapse_folder("home")
+        self.page.unmark_folder("home")
+        pass
