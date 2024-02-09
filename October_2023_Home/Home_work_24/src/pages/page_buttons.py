@@ -21,7 +21,6 @@ class PageButtons():
         self.button_click_me_loc = (By.XPATH, "//button[.='Click Me']")
         self.button_doubleclick_message_loc = (By.ID, "doubleClickMessage")
         self.button_right_click_message_loc = (By.ID, "rightClickMessage")
-        self.button_dynamic_id_click_loc = (By.ID, "dynamicClickBtn")  # Виправив ім'я локатора
         self.button_dynamic_id_click_message_loc = (By.ID, "dynamicClickMessage")
 
     def open(self):
