@@ -2,6 +2,7 @@ coding: 'utf-8'
 import requests
 from datetime import datetime
 
+
 def get_exchange_rates():
     URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json"
     response = requests.get(URL)
@@ -9,22 +10,24 @@ def get_exchange_rates():
     if response.status_code == 200:
         return response.json()
     else:
-        raise Exception(f"Помилка отримання даних. Код стану: {response.status_code}")
+        raise Exception(f"РџРѕРјРёР»РєР° РѕС‚СЂРёРјР°РЅРЅСЏ РґР°РЅРёС…. РљРѕРґ СЃС‚Р°РЅСѓ: {response.status_code}")
+
 
 def write_to_file(data, filename="exchange_rates.txt"):
     with open(filename, "w") as file:
-        file.write(f"[дата створення запиту] {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        file.write(f"[РґР°С‚Р° СЃС‚РІРѕСЂРµРЅРЅСЏ Р·Р°РїРёС‚Сѓ] {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
         for item in data:
             file.write(f"{item['txt']} to UAH: {item['rate']}\n")
+
 
 def run():
     try:
         exchange_rates = get_exchange_rates()
         write_to_file(exchange_rates)
-        print("Курси валют успішно записані у файл.")
+        print("РљСѓСЂСЃРё РІР°Р»СЋС‚ СѓСЃРїС–С€РЅРѕ Р·Р°РїРёСЃР°РЅС– Сѓ С„Р°Р№Р».")
     except Exception as e:
-        print(f"Не вдалося отримати курси валют. Помилка: {e}")
+        print(f"РќРµ РІРґР°Р»РѕСЃСЏ РѕС‚СЂРёРјР°С‚Рё РєСѓСЂСЃРё РІР°Р»СЋС‚. РџРѕРјРёР»РєР°: {e}")
 
-# Викликати функцію безпосередньо, якщо скрипт запущено
-run()
+# Р’РёРєР»РёРєР°С‚Рё С„СѓРЅРєС†С–СЋ Р±РµР·РїРѕСЃРµСЂРµРґРЅСЊРѕ, СЏРєС‰Рѕ СЃРєСЂРёРїС‚ Р·Р°РїСѓС‰РµРЅРѕ
+    run()
