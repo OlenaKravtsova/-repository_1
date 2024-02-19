@@ -10,8 +10,21 @@ class TestPracticeForm:
         self.driver: WebDriver = self.driver
         self.page = PagePracticeForm(driver=self.driver)
 
+# Закомітили і зробили поіншому
+    # def test_(self):
+    #     self.page.open()
+    #     self.page.set_state_via_input(state="NCR")
+    #     results = self.page.get_result_from_dropdown()
+    #     is_ok = all([result for result in results])
+    #     assert is_ok
+
     def test_(self):
         self.page.open()
-        self.page.set_state_via_input(state="NCR")
-        pass
+        state = "NC"
+        self.page.set_state_via_input(state=state)
+        results = self.page.get_result_from_dropdown()
+
+        # is_ok = all(["NCRL" in result for result in results])
+        assert state in results
+
 
