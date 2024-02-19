@@ -2,6 +2,7 @@ coding: 'utf-8'
 import requests
 from datetime import datetime
 
+# https://www.youtube.com/watch?v=zzWnmDi4Xzc
 
 def get_exchange_rates():
     """Ця функція використовує бібліотеку requests, щоб виконати GET-запит до API НБУ за вказаним URL.
