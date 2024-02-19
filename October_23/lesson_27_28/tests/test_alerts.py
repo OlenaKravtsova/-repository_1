@@ -3,7 +3,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from Hellel.October_23.lesson_27.src.pages.page_alert import PageAlerts
+from Hellel.October_23.lesson_27_28.src.pages.page_alert import PageAlerts
 
 
 @pytest.mark.usefixtures("firefox")

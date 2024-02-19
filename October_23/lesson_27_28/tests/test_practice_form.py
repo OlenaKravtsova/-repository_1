@@ -1,6 +1,6 @@
 import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
-from Hellel.October_23.lesson_27.src.pages.page_practice_form import PagePracticeForm
+from Hellel.October_23.lesson_27_28.src.pages.page_practice_form import PagePracticeForm
 
 
 @pytest.mark.usefixtures("firefox")
