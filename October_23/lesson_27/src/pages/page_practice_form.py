@@ -1,3 +1,5 @@
+coding: "utf-8"
+
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -9,14 +11,14 @@ class PagePracticeForm:
     _instance = None
     URL = "https://demoqa.com/automation-practice-form"
 
-    # Êîíñòğóêòîğ êëàñó - öå ìåòîäè __new__, __init__, __call__
-# Öå ñ³íãåëòîí. Ïåğåâ³ğÿºìî, êîëè ó íàñ º îáºêò òî ìè éîãî íå ñòâîğşºìî, ÿêùî éîãî íåìàº, òî ñòâîğşºìî
+    # ĞšĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€ ĞºĞ»Ğ°ÑÑƒ - Ñ†Ğµ Ğ¼ĞµÑ‚Ğ¾Ğ´Ğ¸ __new__, __init__, __call__
+# Ğ¦Ğµ ÑÑ–Ğ½Ğ³ĞµĞ»Ñ‚Ğ¾Ğ½. ĞŸĞµÑ€ĞµĞ²Ñ–Ñ€ÑÑ”Ğ¼Ğ¾, ĞºĞ¾Ğ»Ğ¸ Ñƒ Ğ½Ğ°Ñ Ñ” Ğ¾Ğ±Ñ”ĞºÑ‚ Ñ‚Ğ¾ Ğ¼Ğ¸ Ğ¹Ğ¾Ğ³Ğ¾ Ğ½Ğµ ÑÑ‚Ğ²Ğ¾Ñ€ÑÑ”Ğ¼Ğ¾, ÑĞºÑ‰Ğ¾ Ğ¹Ğ¾Ğ³Ğ¾ Ğ½ĞµĞ¼Ğ°Ñ”, Ñ‚Ğ¾ ÑÑ‚Ğ²Ğ¾Ñ€ÑÑ”Ğ¼Ğ¾
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-# __init__ - öå ìåòîä êëàñó - "²í³öèë³çàòîğ êëàñà"
+# __init__ - Ñ†Ğµ Ğ¼ĞµÑ‚Ğ¾Ğ´ ĞºĞ»Ğ°ÑÑƒ - "Ğ†Ğ½Ñ–Ñ†Ğ¸Ğ»Ñ–Ğ·Ğ°Ñ‚Ğ¾Ñ€ ĞºĞ»Ğ°ÑĞ°"
     def __init__(self, driver: WebDriver):
         self.driver: WebDriver = driver
         self.state_dropdown_loc = (By.ID, "state")
@@ -37,10 +39,17 @@ class PagePracticeForm:
 
     def set_state_via_input(self, state):
         state_input = self.show_filtered_results_in_dropdown(state)
-        state_input.send_keys(Keys.ENTER) # íàòèñêàºìî åíòåğ, ÿêùî íå âèêîğèñòîâóºìî éîãî, òî âèäàëèòè
+        state_input.send_keys(Keys.ENTER) # Ğ½Ğ°Ñ‚Ğ¸ÑĞºĞ°Ñ”Ğ¼Ğ¾ ĞµĞ½Ñ‚ĞµÑ€, ÑĞºÑ‰Ğ¾ Ğ½Ğµ Ğ²Ğ¸ĞºĞ¾Ñ€Ğ¸ÑÑ‚Ğ¾Ğ²ÑƒÑ”Ğ¼Ğ¾ Ğ¹Ğ¾Ğ³Ğ¾, Ñ‚Ğ¾ Ğ²Ğ¸Ğ´Ğ°Ğ»Ğ¸Ñ‚Ğ¸
 
     def get_result_from_dropdown(self) -> list:
         elements = self.driver.find_elements(*self.locator)
         result = [element.text for element in elements]
-        print("->", result, "<-")
         return result
+
+    def set_state_from_dropdown(self, state: str):
+        state = "NCR"
+        element = self.driver.find_element(*self.state_dropdown_loc)
+        _ = element.location_once_scrolled_into_view
+        element.click()
+        state_target = self.driver.find_element(By.XPATH, f"//div[contains(@class, '-menu')]//div[contains(@id, 'option')][text() ='{state}']")
+        state_target.click()
