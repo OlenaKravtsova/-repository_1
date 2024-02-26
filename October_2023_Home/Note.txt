@@ -1,0 +1,40 @@
+https://www.youtube.com/watch?v=NM9ZNE4qtUU
+https://www.youtube.com/watch?v=-l6XqQp5y1A
+type='email' -> //input[@type='email']
+Sing in -> //button[text()='Sing in']
+//button[contains(@class,'btn')]
+//button[@data-cy='submitButton' and @type='submit')]
+
+https://www.youtube.com/watch?v=EkoZu1XxUJA - чистка поля
+Free Conference Call
+
+https://www.youtube.com/watch?v=zgIHrGid5-c - скачування файла та загрузка
+https://www.youtube.com/watch?v=gBJlDTf-DbU - кнопкі явні і не явні
+https://www.youtube.com/watch?v=yo4H6B--QDE - алерти
+https://www.youtube.com/watch?v=lfsyd08aXOg - ????
+https://www.youtube.com/watch?v=4XdaXSgFjRw - меню
+https://www.youtube.com/watch?v=qqGxKDOR2DY - полний тест
+https://www.youtube.com/watch?v=g1qF1B0tCjM - база даних
+https://www.youtube.com/watch?v=NM9ZNE4qtUU - це гітхаб
+
+<label class="custom-control-label disabled" for="noRadio">No</label>
+:: before
+"No"
+:: after == $0
+
+<label class="custom-control-label" for="impressiveRadio">Impressive</label>
+:: before
+"Impressive"
+:: after == $0
+
+<label class="custom-control-label" for="yesRadio">Yes</label>
+:: before
+"Yes"
+:: after == $0
+
+<p class="mt-3">You have selected <span class="text-success">Impressive</span></p>
+
+self.radio_button_yes = (By.XPATH, "//label[contains(@class, 'custom-control-label') and text()='Yes']")
+self.radio_button_impressive = (By.XPATH, "//label[contains(@class, 'custom-control-label') and text()='Impressive']")
+self.radio_button_no = (By.XPATH, "//label[contains(@class, 'custom-control-label')][contains(@class, 'disabled')]")
+self.radio_button_output_result = (By.XPATH, "//p[contains(text(), 'You have selected')]/span[@class='text-success']")
