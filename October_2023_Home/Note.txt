@@ -17,6 +17,8 @@ https://www.youtube.com/watch?v=qqGxKDOR2DY - полний тест
 https://www.youtube.com/watch?v=g1qF1B0tCjM - база даних
 https://www.youtube.com/watch?v=NM9ZNE4qtUU - це гітхаб
 
+https://www.youtube.com/watch?v=bDevf97iUYc - інший блогер, про радіобатони
+
 <label class="custom-control-label disabled" for="noRadio">No</label>
 :: before
 "No"
