@@ -1,3 +1,4 @@
+coding: 'utf-8'
 import pytest
 import requests
 from selenium import webdriver
@@ -18,7 +19,7 @@ def chrome():
 def firefox(request):
     service = Service(GeckoDriverManager().install())
     driver = webdriver.Firefox(service=service)
-    # якщо використовуємо драйвер менеджер, то нам не потрібно викачувати мануально наш драйвер
+    # СЏРєС‰Рѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓС”РјРѕ РґСЂР°Р№РІРµСЂ РјРµРЅРµРґР¶РµСЂ, С‚Рѕ РЅР°Рј РЅРµ РїРѕС‚СЂС–Р±РЅРѕ РІРёРєР°С‡СѓРІР°С‚Рё РјР°РЅСѓР°Р»СЊРЅРѕ РЅР°С€ РґСЂР°Р№РІРµСЂ
     # s = Service(r'/Hellel/October_23/Chrom/geckodriver.exe')
     # driver = webdriver.Firefox(service=s)
     request.cls.driver = driver
@@ -31,14 +32,14 @@ def firefox(request):
 def chrome_class(request):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
-    # якщо використовуємо драйвер менеджер, то нам не потрібно викачувати мануально наш драйвер
+    # СЏРєС‰Рѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓС”РјРѕ РґСЂР°Р№РІРµСЂ РјРµРЅРµРґР¶РµСЂ, С‚Рѕ РЅР°Рј РЅРµ РїРѕС‚СЂС–Р±РЅРѕ РІРёРєР°С‡СѓРІР°С‚Рё РјР°РЅСѓР°Р»СЊРЅРѕ РЅР°С€ РґСЂР°Р№РІРµСЂ
     # s = Service(r'/Hellel/October_23/Chrom/chromedriver.exe')
     # driver = webdriver.Chrome(service=s)
     request.cls.driver = driver
     yield driver
     driver.quit()
 
-#фікстура яка приймає декілька параметрів.
+#С„С–РєСЃС‚СѓСЂР° СЏРєР° РїСЂРёР№РјР°С” РґРµРєС–Р»СЊРєР° РїР°СЂР°РјРµС‚СЂС–РІ.
 @pytest.fixture(scope="class", params=['fashion', 'food', 'history'])
 def fixture_chuck_category(request):
     category = request.param

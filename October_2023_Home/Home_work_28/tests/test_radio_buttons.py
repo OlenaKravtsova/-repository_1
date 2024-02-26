@@ -1,3 +1,4 @@
+coding: 'utf-8'
 import pytest
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as es
