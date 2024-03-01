@@ -31,7 +31,7 @@ class TestRadioButtons:
         assert self.radio_button_page.is_yes_radio_selected
 
     def test_get_radio_buttons_info(self):
-        """Визначає дані про радіокнопки та перевіряє, чи вони коректні та активні"""
+        """Визначає дані про радіокнопки на веб-сторінці та перевіряє їх коректність та активність"""
         self.radio_button_page.open("https://demoqa.com/radio-button")
         radio_buttons_info = {}
 

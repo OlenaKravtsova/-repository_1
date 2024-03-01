@@ -1,3 +1,19 @@
+https://training.qatestlab.com/blog/technical-articles/selenium-webdriver/ - кошик
+https://www.youtube.com/watch?v=1B6oEy3x6VI - резетка
+
+https://www.youtube.com/watch?v=EVGH_XxAbXQ
+
+https://www.youtube.com/watch?v=cEmKPgnQj3s
+
+https://www.youtube.com/watch?v=cOPZB6-Wq1U
+
+https://www.youtube.com/watch?v=XwCeKdH7NNw
+https://www.youtube.com/watch?v=RDzy_oFj6lY
+https://www.youtube.com/watch?v=CAoSyerSbPo
+https://www.youtube.com/watch?v=9tsMFxxSXnE
+https://www.youtube.com/watch?v=XlhSh281fRM
+
+
 https://www.youtube.com/watch?v=NM9ZNE4qtUU
 https://www.youtube.com/watch?v=-l6XqQp5y1A
 type='email' -> //input[@type='email']
@@ -40,3 +56,140 @@ self.radio_button_yes = (By.XPATH, "//label[contains(@class, 'custom-control-lab
 self.radio_button_impressive = (By.XPATH, "//label[contains(@class, 'custom-control-label') and text()='Impressive']")
 self.radio_button_no = (By.XPATH, "//label[contains(@class, 'custom-control-label')][contains(@class, 'disabled')]")
 self.radio_button_output_result = (By.XPATH, "//p[contains(text(), 'You have selected')]/span[@class='text-success']")
+
+
+https://www.youtube.com/watch?v=CERptqAtzwQ
+https://www.youtube.com/watch?v=-l6XqQp5y1A
+
+<form data-v-0abc15d0="" class="">
+<fieldset data-v-0abc15d0="" class="form-group" data-component-name="BFormGroup" id="__BVID__67">
+<!---->
+<div><span data-v-0abc15d0="" class="sr-only">Email</span>
+
+<input data-v-0abc15d0="" type="email" placeholder="E-mail" class="form-control" data-component-name="BFormInput" id="__BVID__68">
+<!---->
+<!---->
+<!---->
+<!---->
+</div></fieldset><fieldset data-v-0abc15d0="" class="form-group" data-component-name="BFormGroup" id="__BVID__69">
+<!---->
+<div><span data-v-0abc15d0="" class="sr-only">Password</span><input data-v-0abc15d0="" type="password" placeholder="Password"
+ class="form-control" data-component-name="BFormInput" id="__BVID__70">
+ <!---->
+ <!---->
+ <!---->
+ <!---->
+ </div></fieldset><!---->
+ <button data-v-0abc15d0="" data-cy="submitButton" type="submit" class="btn p-2 btn-primary btn-block"
+ data-gtm-vis-recent-on-screen10745337_362="194" data-gtm-vis-first-on-screen10745337_362="194"
+ data-gtm-vis-total-visible-time10745337_362="100" data-gtm-vis-has-fired10745337_362="1"
+ data-gtm-vis-recent-on-screen10745337_383="195" data-gtm-vis-first-on-screen10745337_383="195"
+ data-gtm-vis-total-visible-time10745337_383="100" data-gtm-vis-has-fired10745337_383="1">
+ <!----> Sign in </button></form>
+
+
+Ось локатори для п'яти елементів сторінки у вашому коді за допомогою XPath і CSS:
+
+XPath:
+Поле введення "Email" (по атрибуту типу):
+xpath
+Copy code
+//input[@type="email"]
+
+
+Елемент "Email" (по тексту заповнювача):
+xpath
+Copy code
+//span[text()="Email"]/following-sibling::input
+
+
+Елемент "Password" (по тексту заповнювача):
+xpath
+Copy code
+//span[text()="Password"]/following-sibling::input
+
+Поле введення "Password" (по атрибуту типу):
+xpath
+Copy code
+//input[@type="password"]
+
+Кнопка "Sign in" (по тексту кнопки):
+xpath
+Copy code
+//button[text()="Sign in"]
+//button[contains(@class,'btn')]
+
+//button[@data-cy='submitButton' and @type='submit')]
+
+
+
+
+
+
+CSS:
+Елемент "Email" (по тексту заповнювача):
+css
+Copy code
+span.sr-only:contains("Email") + input
+
+Елемент "Password" (по тексту заповнювача):
+css
+Copy code
+span.sr-only:contains("Password") + input
+
+Кнопка "Sign in" (по тексту кнопки):
+css
+Copy code
+button.btn-primary:contains("Sign in")
+
+Поле введення "Email" (по атрибуту типу):
+css
+Copy code
+input[type="email"]
+
+Поле введення "Password" (по атрибуту типу):
+css
+Copy code
+input[type="password"]
+
+
+
+driver.get("https://www.saucedemo.com/v1/")
+username_field = driver.find_element(By.XPATH, "//input[@id='user-name']")
+username_field .send_keys("Sallita@i.ua")
+time.sleep(2)
+username_field.clear()
+time.sleep(2)
+
+username_field = driver.find_element(By.XPATH, "//input[@placeholder='Username']")
+username_field .send_keys("Sallita@i.ua")
+time.sleep(2)
+username_field.clear()
+time.sleep(2)
+
+username_field = driver.find_element(By.CSS_SELECTOR, "input[placeholder='Username']")
+username_field .send_keys("Sallita@i.ua")
+time.sleep(2)
+username_field.clear()
+time.sleep(2)
+
+username_field = driver.find_element(By.ID, "user-name")
+username_field .send_keys("Sallita@i.ua")
+time.sleep(2)
+
+password_field = driver.find_element(By.XPATH, "//input[@data-test='password']")
+password_field.send_keys("12345")
+time.sleep(2)
+password_field.clear()
+time.sleep(2)
+
+password_field = driver.find_element(By.CSS_SELECTOR, "input[data-test='password']")
+password_field.send_keys("1234567890")
+time.sleep(2)
+password_field.clear()
+time.sleep(2)
+
+login_button = driver.find_element(By.XPATH, "//input[contains(@class, 'btn_action') and @value='LOGIN']")
+login_button.click()
+time.sleep(2)
+print(login_button)
