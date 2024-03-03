@@ -1,0 +1,10 @@
+[
+  "test_buttons.py::TestButtons::test_doubleclick_button",
+  "test_buttons.py::TestButtons::test_dynamic_id_click_button",
+  "test_buttons.py::TestButtons::test_right_click_button",
+  "test_cookies.py::test_cookies_download",
+  "test_cookies.py::test_cookies_use",
+  "test_practice_form.py::TestPracticeForm::test_",
+  "test_practice_form.py::TestPracticeForm::test_upload_file",
+  "test_practis_form.py::TestPracticeForm::test_"
+]

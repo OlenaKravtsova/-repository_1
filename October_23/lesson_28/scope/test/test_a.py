@@ -13,5 +13,5 @@ class TestA2:
     def test_22(self, conf_1, conf_2, conf_3, conf_4):
         assert True
 
-def test_3(conf_1, conf_2, conf_3, conf_4):
-    assert True
+    def test_3(conf_1, conf_2, conf_3, conf_4):
+        assert True
