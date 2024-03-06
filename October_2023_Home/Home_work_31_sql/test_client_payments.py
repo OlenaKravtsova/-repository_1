@@ -1,3 +1,5 @@
+coding: 'utf-8'
+
 import sqlite3
 import pytest
 
@@ -9,7 +11,7 @@ def db_connection():
     connection.close()
 
 
-# Тест для перевірки вибірки даних транзакцій по сервісу 819
+# РўРµСЃС‚ РґР»СЏ РїРµСЂРµРІС–СЂРєРё РІРёР±С–СЂРєРё РґР°РЅРёС… С‚СЂР°РЅР·Р°РєС†С–Р№ РїРѕ СЃРµСЂРІС–СЃСѓ 819
 def test_service_payments(db_connection):
     cursor = db_connection.cursor()
 
@@ -23,7 +25,7 @@ def test_service_payments(db_connection):
     cursor.close()
 
 
-# Тест для перевірки суми платежів за 01.05.2024 більше, ніж за 02.05.2024
+# РўРµСЃС‚ РґР»СЏ РїРµСЂРµРІС–СЂРєРё СЃСѓРјРё РїР»Р°С‚РµР¶С–РІ Р·Р° 01.05.2024 Р±С–Р»СЊС€Рµ, РЅС–Р¶ Р·Р° 02.05.2024
 def test_payment_sum_comparison(db_connection):
     cursor = db_connection.cursor()
 
