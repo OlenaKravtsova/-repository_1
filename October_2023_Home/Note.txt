@@ -26,14 +26,40 @@ Free Conference Call
 
 https://www.youtube.com/watch?v=zgIHrGid5-c - скачування файла та загрузка
 https://www.youtube.com/watch?v=gBJlDTf-DbU - кнопкі явні і не явні
-https://www.youtube.com/watch?v=yo4H6B--QDE - алерти
+https://www.youtube.com/watch?v=yo4H6B--QDE - альорти
 https://www.youtube.com/watch?v=lfsyd08aXOg - ????
+https://www.youtube.com/watch?v=2kemWcYoc3k - вкладкі і вікна
 https://www.youtube.com/watch?v=4XdaXSgFjRw - меню
 https://www.youtube.com/watch?v=qqGxKDOR2DY - полний тест
+https://www.youtube.com/watch?v=m7SvKhsJrNg&t=5733s - повний тест форми на сайті https://demoqa.com/automation-practice-form
 https://www.youtube.com/watch?v=g1qF1B0tCjM - база даних
 https://www.youtube.com/watch?v=NM9ZNE4qtUU - це гітхаб
 
+https://www.youtube.com/watch?v=svWfFxEOQpc - парсер в ексель
+https://www.youtube.com/watch?v=vtizH9w0V7c - рейтінг ігр і аторизація
 https://www.youtube.com/watch?v=bDevf97iUYc - інший блогер, про радіобатони
+https://www.youtube.com/watch?v=lOfm04oLD1U - парсер магазин одягу
+https://www.youtube.com/watch?v=IVsBGuAwV_U&t=323s - парсінг розеткі
+https://www.youtube.com/watch?v=T-F_rvUAPvg&list=PL6plRXMq5RABXsb0-B0CrWniWBoFZOL20&index=8 - парсіен селеніум
+https://www.youtube.com/watch?v=ykjBVT57r68 - парсер банковські кати менфін
+https://www.youtube.com/watch?v=zgIHrGid5-c - скачування файла
+https://www.youtube.com/watch?v=1dzbC4xRIXw - парсер раковін
+https://www.youtube.com/watch?v=LSoZX2G6oho - генерація пароля (бібліотека tkinter)
+https://www.youtube.com/shorts/fsR2a2hyqSI - генерація пароля
+https://www.youtube.com/watch?v=xpudfTVix4A - генерація пароля
+https://www.youtube.com/shorts/zZj4riAxVeA - генерація пароля
+https://www.youtube.com/watch?v=bv0xW6f_DFw - генерація пароля
+https://www.youtube.com/watch?v=7bHYCesBgXo  - генерація пароля із записуванням у файл
+https://www.youtube.com/watch?v=3jMA7fdVI2s - скрол в кінці відео
+https://www.youtube.com/watch?v=3CmrrGbhdoE - запитання і відповіді
+
+Напишіть Парсер, для ОЛХ, Розетки або якогось іншої дошки оголошень.
+Спарсіть дві сторінки з оголошеннями, вам потрібно з кожного оголошення вийняти назву товару та ціну і записати це в текстовий файл.
+Важливо реалізувати клік на іншу сторінку, а не просто змінити юрлу.
+Використовуйте Селеніум як основний інструмент для виконання цього домашнього завдання.
+Відео з розбіром домашки в кінці лекції.
+
+
 
 <label class="custom-control-label disabled" for="noRadio">No</label>
 :: before
@@ -57,35 +83,6 @@ self.radio_button_impressive = (By.XPATH, "//label[contains(@class, 'custom-cont
 self.radio_button_no = (By.XPATH, "//label[contains(@class, 'custom-control-label')][contains(@class, 'disabled')]")
 self.radio_button_output_result = (By.XPATH, "//p[contains(text(), 'You have selected')]/span[@class='text-success']")
 
-
-https://www.youtube.com/watch?v=CERptqAtzwQ
-https://www.youtube.com/watch?v=-l6XqQp5y1A
-
-<form data-v-0abc15d0="" class="">
-<fieldset data-v-0abc15d0="" class="form-group" data-component-name="BFormGroup" id="__BVID__67">
-<!---->
-<div><span data-v-0abc15d0="" class="sr-only">Email</span>
-
-<input data-v-0abc15d0="" type="email" placeholder="E-mail" class="form-control" data-component-name="BFormInput" id="__BVID__68">
-<!---->
-<!---->
-<!---->
-<!---->
-</div></fieldset><fieldset data-v-0abc15d0="" class="form-group" data-component-name="BFormGroup" id="__BVID__69">
-<!---->
-<div><span data-v-0abc15d0="" class="sr-only">Password</span><input data-v-0abc15d0="" type="password" placeholder="Password"
- class="form-control" data-component-name="BFormInput" id="__BVID__70">
- <!---->
- <!---->
- <!---->
- <!---->
- </div></fieldset><!---->
- <button data-v-0abc15d0="" data-cy="submitButton" type="submit" class="btn p-2 btn-primary btn-block"
- data-gtm-vis-recent-on-screen10745337_362="194" data-gtm-vis-first-on-screen10745337_362="194"
- data-gtm-vis-total-visible-time10745337_362="100" data-gtm-vis-has-fired10745337_362="1"
- data-gtm-vis-recent-on-screen10745337_383="195" data-gtm-vis-first-on-screen10745337_383="195"
- data-gtm-vis-total-visible-time10745337_383="100" data-gtm-vis-has-fired10745337_383="1">
- <!----> Sign in </button></form>
 
 
 Ось локатори для п'яти елементів сторінки у вашому коді за допомогою XPath і CSS:
