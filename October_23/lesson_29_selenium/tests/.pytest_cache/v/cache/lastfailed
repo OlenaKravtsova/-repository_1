@@ -1,3 +1,4 @@
 {
-  "test_practice_form.py::TestPracticeForm::test_": true
+  "test_practice_form.py::TestPracticeForm::test_": true,
+  "test_practice_form.py::TestPracticeForm": true
 }

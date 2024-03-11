@@ -5,10 +5,6 @@ from selenium.webdriver.remote.webelement import WebElement
 
 class TextBoxPage:
     def __init__(self, driver: WebDriver):
-        """
-
-        :rtype: object
-        """
         self.url = "https://demoqa.com/text-box"
         self.driver = driver
         self.full_name_field = (By.ID, "userName")
@@ -22,7 +18,6 @@ class TextBoxPage:
         self.result_email = (By.ID, "email")
         self.result_curr_addr = (By.CSS_SELECTOR, "p#currentAddress")
         self.result_perm_addr = (By.CSS_SELECTOR, "p#permanentAddress")
-
 
     def open(self) -> "TextBoxPage":
         self.driver.get(self.url)

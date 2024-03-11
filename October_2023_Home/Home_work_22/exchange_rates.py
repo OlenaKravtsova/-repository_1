@@ -4,6 +4,7 @@ from datetime import datetime
 
 # https://www.youtube.com/watch?v=zzWnmDi4Xzc
 
+
 def get_exchange_rates():
     """Ця функція використовує бібліотеку requests, щоб виконати GET-запит до API НБУ за вказаним URL.
      Якщо статус відповіді дорівнює 200 (OK), тоді вона повертає вміст відповіді у форматі JSON.

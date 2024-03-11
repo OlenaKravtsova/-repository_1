@@ -4,3 +4,4 @@ pytest-xdist==3.5.0
 flake8==6.0.0
 selenium==4.17.2
 webdriver-manager==4.0.1
+undetected_chromedriver== 23.3.2 -> 24.0

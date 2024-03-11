@@ -4,6 +4,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 URL = "https://demoqa.com/checkbox"
 
+
 class CheckboxPage:
     def __init__(self, driver):
         self.driver: WebDriver = driver

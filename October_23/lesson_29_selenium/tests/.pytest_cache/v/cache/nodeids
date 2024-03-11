@@ -6,5 +6,8 @@
   "test_cookies.py::test_cookies_use",
   "test_practice_form.py::TestPracticeForm::test_",
   "test_practice_form.py::TestPracticeForm::test_upload_file",
-  "test_practis_form.py::TestPracticeForm::test_"
+  "test_practis_form.py::TestPracticeForm::test_",
+  "test_waiters.py::TestWaiters::test_connection",
+  "test_waiters.py::TestWaiters::test_connection_color",
+  "test_waiters.py::TestWaiters::test_connection_enable"
 ]
