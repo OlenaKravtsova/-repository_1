@@ -7,6 +7,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
+
 @pytest.fixture
 def chrome():
     s = Service(r'/Hellel/October_23_Home/Home_chrome/chromedriver.exe')
@@ -27,15 +28,17 @@ def firefox(request):
     yield driver
     driver.quit()
 
+
 @pytest.fixture
 def firefox2(request):
     # якщо використовуємо драйвер менеджер, то нам не потрібно викачувати мануально наш драйвер
     s = Service(r'C:\Testgit\Hellel\October_2023_Home\Home_chrome\geckodriver.exe')
     driver = webdriver.Firefox(service=s)
-    # request.cls.driver = driver
-    # driver.implicitly_wait(5)
+    driver.maximize_window()
+    driver.implicitly_wait(10)
     yield driver
     driver.quit()
+
 
 @pytest.fixture
 def firefox(request):
@@ -62,10 +65,10 @@ def fixture_chuck_category(request):
 
 
 @pytest.fixture
-def chrome_driver():
+def chrome_driver(request):
     service = Service(executable_path=ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
     driver.maximize_window()
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(5)
     yield driver
     driver.quit()

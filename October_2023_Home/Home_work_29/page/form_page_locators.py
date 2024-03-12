@@ -1,20 +1,21 @@
 coding: 'utf-8'
 from selenium.webdriver.common.by import By
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
 
 
 class FieldButtonPage:
     def __init__(self, driver):
         self.driver = driver
-        self.search_field = (By.CSS_SELECTOR, ".icon-comfy.header-search-form .header-search-form__input")
-        self.submit_button = (By.XPATH, "//span[contains(text(), 'Знайти')]")
-        self.url = "https://comfy.ua/ua/"
+        self.search_field = (By.CSS_SELECTOR, "input#search[data-testid='search-input'][placeholder='Що шукаєте?']")
+        self.submit_button = (By.XPATH, "//button[@data-testid='search-submit']")
+        self.result_search = (By.CSS_SELECTOR, "span[data-testid='total-count']")
+        self.url = "https://www.olx.ua/uk/"
 
     def open(self) -> "FieldButtonPage":
         self.driver.get(self.url)
         return self
+
+    def clear_search_field(self) -> None:
+        self.driver.find_element(*self.search_field).clear()
 
     def fill_search_field(self, text: str) -> None:
         self.driver.find_element(*self.search_field).send_keys(text)
