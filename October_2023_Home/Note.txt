@@ -1,10 +1,5 @@
+coding: 'utf-8'
 https://training.qatestlab.com/blog/technical-articles/selenium-webdriver/ - кошик
-https://www.youtube.com/watch?v=1B6oEy3x6VI - резетка
-
-https://www.youtube.com/watch?v=EVGH_XxAbXQ
-
-https://www.youtube.com/watch?v=cEmKPgnQj3s
-
 https://www.youtube.com/watch?v=cOPZB6-Wq1U
 
 https://www.youtube.com/watch?v=XwCeKdH7NNw
@@ -20,7 +15,7 @@ type='email' -> //input[@type='email']
 Sing in -> //button[text()='Sing in']
 //button[contains(@class,'btn')]
 //button[@data-cy='submitButton' and @type='submit')]
-
+button[@data-cy='dismiss-cookies-overlay' and
 https://www.youtube.com/watch?v=EkoZu1XxUJA - чистка поля
 Free Conference Call
 
@@ -28,7 +23,7 @@ https://www.youtube.com/watch?v=zgIHrGid5-c - скачування файла та загрузка
 https://www.youtube.com/watch?v=gBJlDTf-DbU - кнопкі явні і не явні
 https://www.youtube.com/watch?v=yo4H6B--QDE - альорти
 https://www.youtube.com/watch?v=lfsyd08aXOg - ????
-https://www.youtube.com/watch?v=2kemWcYoc3k - вкладкі і вікна
+ - вкладкі і вікна
 https://www.youtube.com/watch?v=4XdaXSgFjRw - меню
 https://www.youtube.com/watch?v=qqGxKDOR2DY - полний тест
 https://www.youtube.com/watch?v=m7SvKhsJrNg&t=5733s - повний тест форми на сайті https://demoqa.com/automation-practice-form
@@ -52,40 +47,20 @@ https://www.youtube.com/watch?v=bv0xW6f_DFw - генерація пароля
 https://www.youtube.com/watch?v=7bHYCesBgXo  - генерація пароля із записуванням у файл
 https://www.youtube.com/watch?v=3jMA7fdVI2s - скрол в кінці відео
 https://www.youtube.com/watch?v=3CmrrGbhdoE - запитання і відповіді
+https://www.youtube.com/watch?v=E-MHP9dI0tc
+https://www.youtube.com/watch?v=U2M-ZncOFPU
 
-Напишіть Парсер, для ОЛХ, Розетки або якогось іншої дошки оголошень.
-Спарсіть дві сторінки з оголошеннями, вам потрібно з кожного оголошення вийняти назву товару та ціну і записати це в текстовий файл.
-Важливо реалізувати клік на іншу сторінку, а не просто змінити юрлу.
-Використовуйте Селеніум як основний інструмент для виконання цього домашнього завдання.
-Відео з розбіром домашки в кінці лекції.
+https://www.youtube.com/watch?v=1Gn3kNyCafs - Как создать чат-бот в Telegram
 
 
 
-<label class="custom-control-label disabled" for="noRadio">No</label>
-:: before
-"No"
-:: after == $0
 
-<label class="custom-control-label" for="impressiveRadio">Impressive</label>
-:: before
-"Impressive"
-:: after == $0
-
-<label class="custom-control-label" for="yesRadio">Yes</label>
-:: before
-"Yes"
-:: after == $0
-
-<p class="mt-3">You have selected <span class="text-success">Impressive</span></p>
 
 self.radio_button_yes = (By.XPATH, "//label[contains(@class, 'custom-control-label') and text()='Yes']")
 self.radio_button_impressive = (By.XPATH, "//label[contains(@class, 'custom-control-label') and text()='Impressive']")
 self.radio_button_no = (By.XPATH, "//label[contains(@class, 'custom-control-label')][contains(@class, 'disabled')]")
 self.radio_button_output_result = (By.XPATH, "//p[contains(text(), 'You have selected')]/span[@class='text-success']")
 
-
-
-Ось локатори для п'яти елементів сторінки у вашому коді за допомогою XPath і CSS:
 
 XPath:
 Поле введення "Email" (по атрибуту типу):
